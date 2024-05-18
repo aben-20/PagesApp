@@ -1,0 +1,49 @@
+Model - View - Controller
+    Internally separates the data, logic and display of an app into separates components.
+    Model: Manages data and core business logic.
+    View: Renders data from the model in a particular format.
+    Controller: Accepts user input and performs app-specific logic.
+
+Django follows MVC approach with its own version called M-V-T-U
+    Model: Manages data and core business logic.
+    View: Describes which data is sent to the user but not its presentation
+    Template: Presents the data as HTML with optional CSS, JS and Static Assets
+    URL Config: Regular expressions components configured to a view
+
+Django request/response cycle
+    After you type in a URL
+        1. Searches for a url pattern that matches it.
+        2. URL pattern is linked to a single view which combines data from model and styling from any template
+        3. The view returns a HTTP response to the user.
+    HTTP Request -> URL -> View -> Model and Template -> HTTP Response.
+
+Within Project folder
+   __init__.py: indicates that the files are part of a python package
+   asgi.py: allows for an optional Asynchronous Server Gateway Interface.
+   settings.py: controls our Django project's overall settings
+   urls.py: tells us which pages to build in response to a url request
+   wsgi.py: Web Server gateway interface helps Django serves our web pages.
+
+Within App folder
+    admin.py: config file for built-in apps
+    apps.py: config file for the app
+    migrations: keeps track of any changes to our models.py
+    models.py: where we define our database models
+    tests.py: for app specific tests
+    views.py: where we handle the requests/response logic for our app.
+
+Tests
+    Two categories: Unit and Integration
+    Unit Test: checks a piece of functionality in isolation
+    Integration Test: checks multiple pieces linked together
+    SimpleTestCase:used when a database is not necessary
+    TestCase: used when you do want to test the database.
+    TransactionTestCase: useful if you need to directly test database transactions44
+    LiveServerTestCase: launches a live server thread useful for testing with browser-based tools like Selenium.
+
+URL Pattern
+    URLconf is a mapping between URL path expressions to the views.
+    The app URL pattern has three parts:
+        1. a python regular expression.
+        2. a reference to the view.
+        3. optional named URL pattern.
